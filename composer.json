@@ -1,0 +1,21 @@
+{
+    "name": "gibbs/phile-table-of-contents",
+    "type": "phile-plugin",
+    "version": "0.0.9",
+    "license": "MIT",
+    "description": "Generates a table of contents for the Phile CMS",
+    "homepage": "https://github.com/Gibbs/",
+    "keywords": ["cms","phile","philecms", "toc", "table of contents"],
+    "authors": [
+        {
+            "name": "Dan Gibbs",
+            "email": "daniel.gibbs@gmail.com",
+            "homepage": "https://github.com/Gibbs/",
+            "role": "Developer"
+        }
+    ],
+    "require": {
+        "phile-cms/phile": ">=1",
+        "phile-cms/plugin-installer-plugin": ">=1"
+    }
+}
