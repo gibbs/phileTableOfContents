@@ -51,7 +51,17 @@ class Plugin extends \Phile\Plugin\AbstractPlugin implements
                 return;
 
             $doc = new \DOMDocument();
-            $doc->loadHTML($data['data']['content']);
+
+            // Handle errors
+            libxml_use_internal_errors(true);
+            
+            // If for whatever reason the HTML fails to load just give up
+            try {
+                $doc->loadHTML($data['data']['content']);
+            }
+            catch(\Exception $e) {
+                return;
+            }
 
             $prefix = $this->settings['prefix'];
 
@@ -81,6 +91,9 @@ class Plugin extends \Phile\Plugin\AbstractPlugin implements
 
             // Set the modified markup
             $data['data']['content'] = $doc->saveHTML();
+
+            // Clear errors
+            libxml_clear_errors();
         }
     }
 
